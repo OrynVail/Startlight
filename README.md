@@ -202,7 +202,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If this portal brightens your browsing experience:
 
-[![Star this repo](https://img.shields.io/badge/⭐_Star_this_repo-F9E2AF.svg?style=for-the-badge)](https://github.com/oryn-ai/startlight/stargazers)
+[![Star this repo](https://img.shields.io/badge/⭐_Star_this_repo-F9E2AF.svg?style=for-the-badge)](https://github.com/OrynVail/Startlight/stargazers)
 
 ---
 
