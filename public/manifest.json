@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "Startlight",
+	"version": "1.0",
+	"description": "Custom new tab Startlight",
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{40aee1f2-942e-4879-9365-f425f101b380}"
+		}
+	}
+}

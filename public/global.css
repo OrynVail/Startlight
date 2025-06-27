@@ -1,0 +1,285 @@
+* {
+	box-sizing: border-box;
+}
+
+.mocha {
+	--bg-color: #1e1e2e;
+	--bg2-color: #181825;
+	--text-light-color: #cdd6f4;
+	--text-color: #bac2de;
+	--text-dark-color: #6c7086;
+	--sun-color: hsl(23, 92%, 75%);
+	--moon-color: hsl(316, 72%, 86%);
+	--cloud-color: hsl(189, 71%, 73%);
+	--rain-color: hsl(170, 57%, 73%);
+	--snow-color: hsl(10, 56%, 91%);
+}
+
+.frappe {
+	--bg-color: #303446;
+	--bg2-color: #292c3c;
+	--text-light-color: #c6d0f5;
+	--text-color: #b5bfe2;
+	--text-dark-color: #737994;
+	--sun-color: hsl(20, 79%, 70%);
+	--moon-color: hsl(316, 73%, 84%);
+	--cloud-color: hsl(189, 48%, 73%);
+	--rain-color: hsl(172, 39%, 65%);
+	--snow-color: hsl(10, 57%, 88%);
+}
+
+.macchiato {
+	--bg-color: #24273a;
+	--bg2-color: #1e2030;
+	--text-light-color: #cad3f5;
+	--text-color: #b8c0e0;
+	--text-dark-color: #6e738d;
+	--sun-color: hsl(21, 86%, 73%);
+	--moon-color: hsl(316, 74%, 85%);
+	--cloud-color: hsl(189, 59%, 73%);
+	--rain-color: hsl(171, 47%, 69%);
+	--snow-color: hsl(10, 58%, 90%);
+}
+
+.latte {
+	--bg-color: #eff1f5;
+	--bg2-color: #e6e9ef;
+	--text-light-color: #4c4f69;
+	--text-color: #5c5f77;
+	--text-dark-color: #9ca0b0;
+	--sun-color: hsl(22, 99%, 52%);
+	--moon-color: hsl(316, 73%, 69%);
+	--cloud-color: hsl(197, 97%, 46%);
+	--rain-color: hsl(183, 74%, 35%);
+	--snow-color: hsl(11, 59%, 67%);
+}
+
+body {
+	height: 100vh;
+	width: 100%;
+	margin: 0;
+	background: var(--bg-color);
+	color: var(--text-color);
+	font-family: Cascadia Code;
+	font-size: 1.2rem;
+	font-weight: 200;
+}
+
+.weather-icon {
+	display: inline-block;
+	animation: float 5s ease-in-out infinite;
+}
+
+.sun {
+	background: var(--sun-color);
+	width: 2rem;
+	height: 2rem;
+	margin: -0.2rem 0.3rem 0 0.4rem;
+	vertical-align: top;
+	border-radius: 50%;
+	box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 0.5rem;
+	animation: sun 1s ease-in-out infinite alternate,
+		float 5s ease-in-out infinite;
+}
+
+.moon {
+	width: 2.4rem;
+	height: 2.4rem;
+	margin: -0.9rem 0.6rem 0 -0.5rem;
+	vertical-align: top;
+	border-radius: 50%;
+	background: none;
+	box-shadow: var(--moon-color) 0.5rem 0.5rem 0 0rem;
+	animation: float 5s ease-in-out infinite;
+}
+
+.cloud {
+	background: var(--cloud-color);
+	border-radius: 2rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	margin: 0.2rem 2.4rem 0 0;
+	vertical-align: top;
+	box-shadow: var(--cloud-color) 0.6rem 0.3rem 0 0.2rem,
+		var(--cloud-color) 1.5rem 0.7rem 0 -0.1rem,
+		var(--cloud-color) 2.1rem 0.1rem 0 0.2rem,
+		var(--cloud-color) 1.6rem -0.4rem 0 0.1rem,
+		var(--cloud-color) 0.7rem -0.5rem 0 -0.1rem;
+}
+
+.rain {
+	background: var(--cloud-color);
+	border-radius: 2rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: -0.3rem 1.5rem 0 0;
+	vertical-align: top;
+	box-shadow: var(--cloud-color) 0.6rem 0.3rem 0 0.2rem,
+		var(--cloud-color) 1.5rem 0.7rem 0 -0.1rem,
+		var(--cloud-color) 2.1rem 0.1rem 0 0.2rem,
+		var(--cloud-color) 1.6rem -0.4rem 0 0.1rem,
+		var(--cloud-color) 0.7rem -0.5rem 0 -0.1rem;
+	transform: scale(0.7);
+	animation: float-small 5s ease-in-out infinite;
+}
+
+.rain:after {
+	content: '';
+	position: absolute;
+	border-radius: 10px;
+	background-color: transparent;
+	width: 0.2rem;
+	height: 0.6rem;
+	top: 2rem;
+	/* transform: rotate(30deg); */
+	transform: rotate(0deg);
+	animation: rain 1s ease-out infinite;
+}
+
+.snow {
+	background: var(--cloud-color);
+	border-radius: 2rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: -0.2rem 1.5rem 0 0;
+	vertical-align: top;
+	box-shadow: var(--cloud-color) 0.6rem 0.3rem 0 0.2rem,
+		var(--cloud-color) 1.5rem 0.7rem 0 -0.1rem,
+		var(--cloud-color) 2.1rem 0.1rem 0 0.2rem,
+		var(--cloud-color) 1.6rem -0.4rem 0 0.1rem,
+		var(--cloud-color) 0.7rem -0.5rem 0 -0.1rem;
+	transform: scale(0.7);
+	animation: float-small 5s ease-in-out infinite;
+}
+
+.snow:after {
+	content: '';
+	position: absolute;
+	border-radius: 10px;
+	background-color: transparent;
+	width: 0.3rem;
+	height: 0.3rem;
+	top: 2.4rem;
+	animation: snow 1s ease-out infinite;
+}
+
+@keyframes sun {
+	from {
+		box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 0.3rem;
+	}
+	to {
+		box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 0.6rem;
+	}
+}
+
+@keyframes rain {
+	from {
+		opacity: 1;
+		/* box-shadow: var(--rain-color) 0.6rem 0rem,
+			var(--rain-color) 1.2rem -0.33rem, var(--rain-color) 1.8rem -0.66rem,
+			var(--rain-color) 2.4rem -0.99rem; */
+		box-shadow: var(--rain-color) 0.8rem 0.1rem,
+			var(--rain-color) 1.5rem 0.3rem, var(--rain-color) 2.2rem 0.1rem,
+			var(--rain-color) 2.9rem 0.3rem;
+	}
+	to {
+		opacity: 0;
+		box-shadow: var(--rain-color) 0.8rem 0.6rem,
+			var(--rain-color) 1.5rem 0.8rem, var(--rain-color) 2.2rem 0.6rem,
+			var(--rain-color) 2.9rem 0.8rem;
+	}
+}
+
+@keyframes snow {
+	from {
+		opacity: 1;
+		box-shadow: var(--snow-color) 0.8rem -0.2rem,
+			var(--snow-color) 1.5rem 0rem, var(--snow-color) 2.2rem -0.2rem,
+			var(--snow-color) 2.9rem 0rem;
+	}
+	to {
+		opacity: 0;
+		box-shadow: var(--snow-color) 0.8rem 0.3rem,
+			var(--snow-color) 1.5rem 0.5rem, var(--snow-color) 2.2rem 0.3rem,
+			var(--snow-color) 2.9rem 0.5rem;
+	}
+}
+
+@keyframes float {
+	50% {
+		transform: translateY(0.5rem);
+	}
+}
+
+@keyframes float-small {
+	50% {
+		transform: translateY(0.5rem) scale(0.7);
+	}
+}
+
+@keyframes appear {
+	from {
+		transform: scale(0.5);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes time-appear {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes weather-appear {
+	from {
+		opacity: 0;
+		transform: translateX(4rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes text-appear {
+	from {
+		opacity: 0;
+		transform: translateX(8rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.content-box {
+	backdrop-filter: blur(12px);
+	border-radius: 16px;
+	border: 1px solid rgba(180, 190, 254, 0.1); /* default edge hint */
+	box-shadow: 0 0 30px rgba(203, 166, 247, 0.04); /* default glow */
+}
+.content-box.mocha {
+	background: rgba(24, 24, 37, 0.60);
+	border: 1px solid rgba(180, 190, 254, 0.1);
+	box-shadow: 0 0 30px rgba(203, 166, 247, 0.04);
+}
+.content-box.frappe {
+	background: rgba(41, 44, 60, 0.60);
+	border: 1px solid rgba(186, 187, 241, 0.1);
+	box-shadow: 0 0 30px rgba(202, 158, 230, 0.04);
+}
+.content-box.macchiato {
+	background: rgba(30, 32, 48, 0.60);
+	border: 1px solid rgba(183, 189, 248, 0.1);
+	box-shadow: 0 0 30px rgba(198, 160, 246, 0.04);
+}
+.content-box.latte {
+	background: rgba(230, 233, 239, 0.60);
+	border: 1px solid rgba(114, 135, 253, 0.1);
+	box-shadow: 0 0 30px rgba(136, 57, 239, 0.04);
+}
