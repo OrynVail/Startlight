@@ -89,14 +89,12 @@ Install the [Cascadia Code](https://github.com/microsoft/cascadia-code) font fam
 
 </div>
 
-```bash
 # Download the latest version
 Go to [releases](https://github.com/OrynVail/Startlight/releases) and download the .xpi file
 
 # Navigate to about:addons in Firefox
 # Click the gear icon → "Install Add-on From File..."
 # Select the .xpi file from the repo
-```
 
 <div align="center">
 
