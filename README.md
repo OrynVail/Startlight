@@ -1,6 +1,6 @@
 <div align="center">
 
-![Startlight](./public/favicon.svg)
+![Startlight](./public/apple-touch-icon.png)
 
 <h1>
   Startlight
@@ -90,9 +90,8 @@ Install the [Cascadia Code](https://github.com/microsoft/cascadia-code) font fam
 </div>
 
 ```bash
-# Clone or download the repository
-git clone https://github.com/OrynVail/Startlight.git
-cd Startlight
+# Download the latest version
+Go to [releases](https://github.com/OrynVail/Startlight/releases) and download the .xpi file
 
 # Navigate to about:addons in Firefox
 # Click the gear icon → "Install Add-on From File..."
