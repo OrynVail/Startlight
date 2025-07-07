@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Startlight",
-	"version": "1.0",
+	"version": "1.2",
 	"description": "Custom new tab Startlight",
 	"chrome_url_overrides": {
 		"newtab": "index.html"

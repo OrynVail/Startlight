@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	export let config
 
 	let settings = false
@@ -124,12 +126,69 @@
 			{ name: '', url: '' }
 		];
 	}
+
+	let searchQuery = '';
+
+	const searchEngines = {
+		'!g': 'https://www.google.com/search?q=',
+		'!ddg': 'https://duckduckgo.com/?q=',
+		'!brave': 'https://search.brave.com/search?q=',
+	};
+
+	function handleSearchKeydown(e) {
+		if (e.key === 'Enter' && searchQuery.trim()) {
+			let url = '';
+			const match = searchQuery.match(/^!(g|ddg|brave)\s+(.*)$/i);
+			if (match) {
+				const tag = `!${match[1].toLowerCase()}`;
+				const query = encodeURIComponent(match[2]);
+				url = searchEngines[tag] + query;
+			} else {
+				url = searchEngines['!g'] + encodeURIComponent(searchQuery);
+			}
+			window.open(url, '_blank');
+		}
+	}
+
+	let searchBarVisible = false;
+
+	function handleGlobalKeydown(e) {
+		if (e.key === '/') {
+			e.preventDefault();
+			searchBarVisible = true;
+			setTimeout(() => {
+				const input = document.querySelector('.search-input');
+				if (input) input.focus();
+			}, 0);
+		}
+	}
+
+	onMount(() => {
+		window.addEventListener('keydown', handleGlobalKeydown);
+		return () => window.removeEventListener('keydown', handleGlobalKeydown);
+	});
 </script>
 
 <main>
 	{#if $config.backgroundImage}
 		<div id="custom-bg" style="background-image: url('{$config.backgroundImage}'); filter: blur({$config.backgroundBlur}px);"></div>
 	{/if}
+
+	{#if !settings && !showLinks}
+		<div class="search-bar-container" on:mouseenter={() => searchBarVisible = true} on:mouseleave={() => searchBarVisible = false}>
+			<div class="search-bar content-box {$config.flavour} {searchBarVisible ? 'visible' : ''}">
+				<input
+					type="text"
+					placeholder="!g, !ddg, !brave..."
+					bind:value={searchQuery}
+					on:keydown={handleSearchKeydown}
+					class="search-input"
+					style="text-align: center;"
+				/>
+			</div>
+		</div>
+	{/if}
+
 	{#if showLinks}
 		<div id="box" class="content-box {$config.flavour} links-mode">
 			<div id="links-panel">
@@ -562,5 +621,46 @@
 		align-items: center;
 		gap: 0.5rem;
 		margin-bottom: 1rem;
+	}
+	.search-bar-container {
+		position: absolute;
+		bottom: calc(50% - 16rem - 3rem);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+		width: calc(14.5rem + 3rem + 44rem);
+		max-width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.search-bar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		width: 100%;
+		padding: 0.5rem 2.5rem;
+		box-sizing: border-box;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+	.search-bar.visible,
+	.search-bar-container:hover .search-bar {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.search-input {
+		width: 100%;
+		font-size: 1.1rem;
+		background: transparent;
+		border: none;
+		outline: none;
+		color: var(--text-color);
+		font-family: inherit;
+		padding: 0.4rem 1.2rem;
+		border-radius: 0.7rem;
+		text-align: center;
 	}
 </style>
