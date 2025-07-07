@@ -628,7 +628,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 2;
-		width: calc(14.5rem + 3rem + 44rem);
+		width: calc(14rem + 2rem + 44rem);
 		max-width: 100vw;
 		display: flex;
 		justify-content: center;
