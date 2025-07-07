@@ -42,7 +42,6 @@
 <div align="center">
 
 ![home](./preview/1.png) 
-![search](./preview/4.png)
 ![settings](./preview/2.png)
 ![links](./preview/3.png) 
 
