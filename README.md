@@ -8,7 +8,6 @@
 
 <h3>✦ A Luminous Digital Portal ✦</h3>
 
-*"Where every new tab becomes a gateway to serenity,*  
 *Crafted with Svelte, kissed by Catppuccin's beauty."*
 
 <div align="center">
@@ -63,7 +62,7 @@
 | **🎨 Catppuccin Themes** | Four exquisite flavours: Latte, Frappé, Macchiato, Mocha |
 | **🌌 Dynamic Backgrounds** | Customizable imagery that breathes life into your portal |
 | **🧊 Glassmorphism** | Modern frosted glass aesthetics with elegant blur effects |
-| **🌤️ Weather Oracle** | Real-time weather integration via OpenWeatherMap API |
+| **🌤️ Weather** | Real-time weather integration via OpenWeatherMap API |
 | **⏰ Temporal Awareness** | Localized time and date display with elegant typography |
 | **🔗 Quick Navigation** | Personalized quick links for instant access to your digital realm |
 | **⚙️ Intuitive Settings** | Minimal configuration panel revealed through hover interaction |
@@ -197,15 +196,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-### 🌟 Support Startlight
-
-If this portal brightens your browsing experience:
+### 🌟 Support Startlight
 
 [![Star this repo](https://img.shields.io/badge/⭐_Star_this_repo-F9E2AF.svg?style=for-the-badge)](https://github.com/OrynVail/Startlight/stargazers)
 
----
-
-*"In the gentle glow of Startlight, every journey begins with beauty."*
+---
 
 </div>
 
